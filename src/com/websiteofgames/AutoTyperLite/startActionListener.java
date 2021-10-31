@@ -6,6 +6,8 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class startActionListener implements ActionListener {
 
@@ -22,7 +24,7 @@ public class startActionListener implements ActionListener {
 
 
             String stringToPaste =  Frame.wordstoPaste.getText();
-            System.out.println("Pasting" + stringToPaste);
+            System.out.println("Pasting: " + stringToPaste);
 
 
 
@@ -46,31 +48,64 @@ public class startActionListener implements ActionListener {
 
 
 
-            System.out.println(3);
-            Frame.title.setText("Starting in 3");
-            robot.delay(1000);
-            Frame.title.setText("Starting in 2");
-            System.out.println(2);
-            robot.delay(1000);
-            Frame.title.setText("Starting in 1");
-            System.out.println(1);
-            robot.delay(1000);
 
-            Frame.start.setText("Started!");
-for (int i = 0; i<timesToPasteInt; i++){
+            Timer timer = new Timer();
+            TimerTask timerTask = new TimerTask() {
+                int timerNumber = 3;
+                @Override
+                public void run() {
+                    Frame.start.setText("Starting in " + timerNumber);
+                    System.out.println(timerNumber);
 
-    robot.keyPress(KeyEvent.VK_CONTROL);
-    robot.keyPress(KeyEvent.VK_V);
-    robot.keyRelease(KeyEvent.VK_CONTROL);
-    robot.keyRelease(KeyEvent.VK_V);
-
-    robot.keyPress(KeyEvent.VK_ENTER);
-    robot.keyRelease(KeyEvent.VK_ENTER);
-
-    robot.delay(timeBetweenPastesInt);
+                    timerNumber--;
 
 
-}
+
+
+                if (timerNumber<=0){
+
+
+                    timer.cancel();
+                    robot.delay(1000);
+                    Frame.start.setText("Started!");
+
+
+
+
+                    for (int i = 0; i<timesToPasteInt; i++){
+
+                        robot.keyPress(KeyEvent.VK_CONTROL);
+                        robot.keyPress(KeyEvent.VK_V);
+                        robot.keyRelease(KeyEvent.VK_CONTROL);
+                        robot.keyRelease(KeyEvent.VK_V);
+
+                        robot.keyPress(KeyEvent.VK_ENTER);
+                        robot.keyRelease(KeyEvent.VK_ENTER);
+
+                        robot.delay(timeBetweenPastesInt);
+
+
+                    }
+
+
+                    Frame.start.setText("Start!");
+
+
+
+                }
+
+
+                }
+            };
+            timer.scheduleAtFixedRate(timerTask,0,1000);
+
+
+
+
+
+
+
+
 
 
 

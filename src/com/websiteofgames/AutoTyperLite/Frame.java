@@ -19,7 +19,7 @@ public class Frame {
 
 
     public Frame(){
-        title = new JLabel("AutoTyper Lite v0.1.1");
+        title = new JLabel("AutoTyper Lite v0.1.2");
 
 
         title.setFont(new Font(null,Font.BOLD,30));
