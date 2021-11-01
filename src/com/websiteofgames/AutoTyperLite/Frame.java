@@ -29,23 +29,23 @@ public class Frame {
         wordstoPaste.setBounds(150, 140,500,275);
 
         alreadyInClipboardLabel = new JLabel("Already Copied? (If Checked Program Will Ignore TextArea Above)");
-        alreadyInClipboardLabel.setBounds(150,422,387,25);
+        alreadyInClipboardLabel.setBounds(20,422,387,25);
 
         alreadyInClipboard = new JCheckBox("");
         alreadyInClipboard.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        alreadyInClipboard.setBounds(650,425,20,20);
+        alreadyInClipboard.setBounds(420,425,20,20);
         alreadyInClipboard.addItemListener(new useJTextArea());
 
         timesToPaste = new JTextField();
         timesToPasteLabel = new JLabel("Times To Paste:");
-        timesToPaste.setBounds(350,452,100,25);
-        timesToPasteLabel.setBounds(150,452,100,25);
+        timesToPaste.setBounds(220,452,100,25);
+        timesToPasteLabel.setBounds(20,452,100,25);
 
 
         timeBetweenPastes = new JTextField();
         timeBetweenPastesLabel = new JLabel("Time Between Pastes (ms):");
-        timeBetweenPastes.setBounds(350,482,100,25);
-        timeBetweenPastesLabel.setBounds(152,480,170,25);
+        timeBetweenPastes.setBounds(220,482,100,25);
+        timeBetweenPastesLabel.setBounds(20,480,170,25);
 
 
 
@@ -53,7 +53,7 @@ public class Frame {
 
 
         start = new JButton("Start!");
-        start.setBounds(325, 510,150,50);
+        start.setBounds(325, 455,150,50);
         start.addActionListener(new startActionListener());
         start.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
