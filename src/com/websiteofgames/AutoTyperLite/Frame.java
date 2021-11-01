@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class Frame {
 
-    public static javax.swing.JFrame frame = new javax.swing.JFrame();
+    public static javax.swing.JFrame frame = new javax.swing.JFrame("AutoTyper Lite v0.1.3");
     public static JPanel panel = new JPanel();
     public static JCheckBox alreadyInClipboard;
     public static JTextArea wordstoPaste;
@@ -19,7 +19,7 @@ public class Frame {
 
 
     public Frame(){
-        title = new JLabel("AutoTyper Lite v0.1.2");
+        title = new JLabel("AutoTyper Lite v0.1.3");
 
 
         title.setFont(new Font(null,Font.BOLD,30));
